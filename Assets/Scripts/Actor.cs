@@ -30,6 +30,9 @@ public class Actor : MonoBehaviour
     public SpriteRenderer rightEye;
     public SpriteRenderer mouth;
 
+    public Transform rightHand;
+    public Transform leftHand;
+
     Vector3 here;
     Vector3 there;
     float travelDelta;
@@ -39,6 +42,46 @@ public class Actor : MonoBehaviour
     Quaternion rotateTo;
     float turnDelta;
     float turnTime;
+
+    Quaternion leftHandFrom;
+    Quaternion leftHandTo;
+    float leftHandDelta;
+    float leftHandTime;
+
+    Quaternion rightHandFrom;
+    Quaternion rightHandTo;
+    float rightHandDelta;
+    float rightHandTime;
+
+    public void TurnLeftTo(Vector3 v, float f) {
+        leftHandFrom = leftHand.rotation;
+        leftHandTo = Quaternion.Euler(v);
+        leftHandDelta = 0f;
+        leftHandTime = f;
+    }
+
+    public void TurnLeftFromTo(Vector3 v1, Vector3 v2, float f) {
+        leftHand.rotation = Quaternion.Euler(v1);
+        leftHandFrom = Quaternion.Euler(v1);
+        leftHandTo = Quaternion.Euler(v2);
+        leftHandDelta = 0f;
+        leftHandTime = f;
+    }
+
+    public void TurnRightTo(Vector3 v, float f) {
+        rightHandFrom = rightHand.rotation;
+        rightHandTo = Quaternion.Euler(v);
+        rightHandDelta = 0f;
+        rightHandTime = f;
+    }
+
+    public void TurnRightFromTo(Vector3 v1, Vector3 v2, float f) {
+        rightHand.rotation = Quaternion.Euler(v1);
+        rightHandFrom = Quaternion.Euler(v1);
+        rightHandTo = Quaternion.Euler(v2);
+        rightHandDelta = 0f;
+        rightHandTime = f;
+    }
 
     public void MoveTo(Vector3 v, float f) {
       here = transform.position;
@@ -108,6 +151,12 @@ public class Actor : MonoBehaviour
         mouth.sprite = SpriteCollector.GetMouthA();
     }
 
+    public void MouthSad() {
+        mouth.flipX = false;
+        mouth.flipY = true;
+        mouth.sprite = SpriteCollector.GetMouthB();
+    }
+
     public void MouthShock() {
         mouth.flipX = false;
         mouth.flipY = false;
@@ -130,7 +179,9 @@ public class Actor : MonoBehaviour
             eyeState.Stash(leftEye, rightEye);
             EyesBlink();
             yield return new WaitForSeconds(0.05f);
-            eyeState.Apply(leftEye, rightEye);
+            // Only reset if we are still blinking
+            if(leftEye.sprite == SpriteCollector.GetEyeLine() && rightEye.sprite == SpriteCollector.GetEyeLine())
+              eyeState.Apply(leftEye, rightEye);
             blinkDelta = Time.time - blinkDelta;
             t -= blinkDelta;
             blinkDelta = Time.time;
@@ -237,6 +288,16 @@ public class Actor : MonoBehaviour
 
             if (turnDelta >= turnTime) {
                 transform.rotation = rotateTo;
+            }
+        }
+
+        if(rightHandDelta < rightHandTime) {
+            rightHandDelta += Time.deltaTime;
+            // Rotation
+            rightHand.rotation = Quaternion.Slerp(rightHandFrom, rightHandTo, rightHandDelta / rightHandTime);
+
+            if (rightHandDelta >= rightHandTime) {
+                rightHand.rotation = rightHandTo;
             }
         }
 
