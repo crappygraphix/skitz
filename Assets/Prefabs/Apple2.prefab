@@ -471,18 +471,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4373168630712248889}
     m_Modifications:
-    - target: {fileID: 100000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}
-      propertyPath: m_Name
-      value: Items_Knife_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.018
@@ -526,6 +514,18 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}
+      propertyPath: m_Name
+      value: Items_Knife_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968bb62c1464eb542a7c598be10f96c1, type: 3}

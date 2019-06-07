@@ -20,7 +20,6 @@ public class KitchenScript : MonoBehaviour
         banana.transform.position = new Vector3(-1.950782f, 2.159547f, -2.482f);
         banana.EyesRound(true);
         banana.MouthLine();
-        yield return null;
         banana.MoveTo(new Vector3(-1.950782f, 2.159547f, -3.974f), 4f);
         banana.TurnTo(new Vector3(0f, 180f, 0f), 0.1f);
         StartCoroutine(banana.IdleBlinkCR(60f));
@@ -75,7 +74,6 @@ public class KitchenScript : MonoBehaviour
         apple1.transform.position = new Vector3(-1.927f, 1.898f, -6.611f);
         apple1.EyesRound(true);
         apple1.MouthLine();
-        yield return null;
         apple1.MoveTo(new Vector3(-1.927f, 1.898f, -4.637f), 4f);
         apple1.TurnTo(new Vector3(0f, 0f, 0f), 0.1f);
         StartCoroutine(apple1.IdleBlinkCR(60f));
@@ -129,7 +127,6 @@ public class KitchenScript : MonoBehaviour
         apple2.transform.position = new Vector3(-1.927f, 1.898f, -7.455f);
         apple2.EyesRound(true);
         apple2.MouthLine();
-        yield return null;
         apple2.MoveTo(new Vector3(-1.927f, 1.898f, -5.3f), 4f);
         apple2.TurnTo(new Vector3(0f, 0f, 0f), 0.1f);
         StartCoroutine(apple2.IdleBlinkCR(60f));
