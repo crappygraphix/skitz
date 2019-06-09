@@ -270,7 +270,7 @@ public class Actor : MonoBehaviour
             // Slide
             Vector3 pos = Vector3.Lerp(here, there, travelDelta / travelTime);
             // Hop
-            pos.y = pos.y + Mathf.PingPong((3f * travelDelta) / travelTime, 0.1f);
+            pos.y = pos.y + Mathf.PingPong(travelDelta, 0.1f);
 
             if (travelDelta >= travelTime) {
                 pos = there;
@@ -284,7 +284,7 @@ public class Actor : MonoBehaviour
             turning = true;
             turnDelta += Time.deltaTime;
             // Rotation
-            transform.rotation = Quaternion.Slerp(rotateFrom, rotateTo, turnDelta / turnTime);
+            transform.rotation = Quaternion.Lerp(rotateFrom, rotateTo, turnDelta / turnTime);
 
             if (turnDelta >= turnTime) {
                 transform.rotation = rotateTo;
@@ -294,10 +294,20 @@ public class Actor : MonoBehaviour
         if(rightHandDelta < rightHandTime) {
             rightHandDelta += Time.deltaTime;
             // Rotation
-            rightHand.rotation = Quaternion.Slerp(rightHandFrom, rightHandTo, rightHandDelta / rightHandTime);
+            rightHand.rotation = Quaternion.Lerp(rightHandFrom, rightHandTo, rightHandDelta / rightHandTime);
 
             if (rightHandDelta >= rightHandTime) {
                 rightHand.rotation = rightHandTo;
+            }
+        }
+
+        if(leftHandDelta < leftHandTime) {
+            leftHandDelta += Time.deltaTime;
+            // Rotation
+            leftHand.rotation = Quaternion.Lerp(leftHandFrom, leftHandTo, leftHandDelta / leftHandTime);
+
+            if (leftHandDelta >= leftHandTime) {
+                leftHand.rotation = leftHandTo;
             }
         }
 
