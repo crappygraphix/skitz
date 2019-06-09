@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KitchenScript : MonoBehaviour
 {
+    public float talkScale = 1f;
+
     public Actor banana;
     public Actor apple1;
     public Actor apple2;
@@ -25,11 +27,11 @@ public class KitchenScript : MonoBehaviour
         StartCoroutine(banana.IdleBlinkCR(60f));
         yield return new WaitForSeconds(4f);
         banana.TurnTo(new Vector3(0f, 240f, 0f), 0.5f);
-        yield return new WaitForSeconds(1f); // Starts talking at 5 seconds.
+        yield return new WaitForSeconds(1f * talkScale); // Starts talking at 5 seconds.
         banana.EyesSmile();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(banana.TalkCR(2f));
-        yield return new WaitForSeconds(2f); // Stops talking at 7.5 seconds.
+        StartCoroutine(banana.TalkCR(2f * talkScale));
+        yield return new WaitForSeconds(2f * talkScale); // Stops talking at 7.5 seconds.
         banana.MouthIdle();
         yield return new WaitForSeconds(1f);
         StartCoroutine(banana.IdleLookCR(5f));
@@ -38,8 +40,8 @@ public class KitchenScript : MonoBehaviour
         yield return new WaitForSeconds(0.5f); // Starts talking at 14 seconds.
         banana.EyesSmile();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(banana.TalkCR(3f));
-        yield return new WaitForSeconds(3f); // Stops talking at 17.5 seconds.
+        StartCoroutine(banana.TalkCR(3f * talkScale));
+        yield return new WaitForSeconds(3f * talkScale); // Stops talking at 17.5 seconds.
         banana.MouthIdle();
         yield return new WaitForSeconds(1.5f);
         banana.EyesRound(false);
@@ -51,15 +53,15 @@ public class KitchenScript : MonoBehaviour
         yield return new WaitForSeconds(4f); // Shout at 29.5 seconds.
         banana.EyesAngry();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(banana.ShoutCR(4f));
-        yield return new WaitForSeconds(4f); // Stops talking at 34 seconds.
+        StartCoroutine(banana.ShoutCR(4f * talkScale));
+        yield return new WaitForSeconds(4f * talkScale); // Stops talking at 34 seconds.
         banana.MouthLine();
         yield return new WaitForSeconds(2f);
         banana.EyesRound(true);
         banana.MouthSad();
         yield return new WaitForSeconds(6.5f); // Starts talking at 42.5 seconds.
-        StartCoroutine(banana.ShoutCR(3f));
-        yield return new WaitForSeconds(3f); // Stops talking at 45.5 seconds.
+        StartCoroutine(banana.ShoutCR(3f * talkScale));
+        yield return new WaitForSeconds(3f * talkScale); // Stops talking at 45.5 seconds.
         banana.MouthSad();
         yield return new WaitForSeconds(4f); // Runs away at 49.5 seconds.
         banana.MouthShock();
@@ -79,11 +81,11 @@ public class KitchenScript : MonoBehaviour
         StartCoroutine(apple1.IdleBlinkCR(60f));
         yield return new WaitForSeconds(4f);
         apple1.TurnTo(new Vector3(0f, -90f, 0f), 0.5f);
-        yield return new WaitForSeconds(4f); // Starts talking at 8 Seconds
+        yield return new WaitForSeconds(4f * talkScale); // Starts talking at 8 Seconds
         apple1.EyesSmile();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(apple1.TalkCR(2f));
-        yield return new WaitForSeconds(2f); // Stops talking at 10.5 seconds.
+        StartCoroutine(apple1.TalkCR(2f * talkScale));
+        yield return new WaitForSeconds(2f * talkScale); // Stops talking at 10.5 seconds.
         apple1.MouthIdle();
         StartCoroutine(apple1.IdleLookCR(7f));
         yield return new WaitForSeconds(5.5f); // Turns at 16 Seconds
@@ -92,8 +94,8 @@ public class KitchenScript : MonoBehaviour
         yield return new WaitForSeconds(1.5f); // Starts talking at 17.5 seconds.
         apple1.EyesSmile();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(apple1.TalkCR(5f));
-        yield return new WaitForSeconds(5f); // Stops talking at 23 seconds.
+        StartCoroutine(apple1.TalkCR(5f * talkScale));
+        yield return new WaitForSeconds(5f * talkScale); // Stops talking at 23 seconds.
         apple1.MouthIdle();
         yield return new WaitForSeconds(1f); // Turns at 24 seconds.
         apple1.TurnTo(new Vector3(0f, -110f, 0f), 0.5f);
@@ -103,17 +105,17 @@ public class KitchenScript : MonoBehaviour
         yield return new WaitForSeconds(4.5f); // Starts talking at 34.5 seconds.
         apple1.EyesAngry();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(apple1.TalkCR(3f));
-        yield return new WaitForSeconds(3f); // Stops talking at 38 seconds.
+        StartCoroutine(apple1.TalkCR(3f * talkScale));
+        yield return new WaitForSeconds(3f * talkScale); // Stops talking at 38 seconds.
         apple1.MouthIdle();
         yield return new WaitForSeconds(8); // Starts talking at 46 seconds.
-        StartCoroutine(apple1.TalkCR(3f));
+        StartCoroutine(apple1.TalkCR(3f * talkScale));
         apple1.rightHand.gameObject.SetActive(true);
         apple1.TurnRightFromTo(
             new Vector3(18.5f, 145.2f, 0f),
             new Vector3(-63.2f, 0f, 0f),
             0.5f);
-        yield return new WaitForSeconds(3f); // Stops talking at 49 seconds.
+        yield return new WaitForSeconds(3f * talkScale); // Stops talking at 49 seconds.
         apple1.MouthSmile();
         yield return new WaitForSeconds(1f); // Runs away at 50 seconds.
         apple1.TurnTo(new Vector3(0f, -60f, 0f), 0.25f);
@@ -132,11 +134,11 @@ public class KitchenScript : MonoBehaviour
         StartCoroutine(apple2.IdleBlinkCR(60f));
         yield return new WaitForSeconds(4f);
         apple2.TurnTo(new Vector3(0f, 284f, 0f), 0.5f);
-        yield return new WaitForSeconds(7f); // Starts talking at 11 seconds.
+        yield return new WaitForSeconds(7f * talkScale); // Starts talking at 11 seconds.
         apple2.EyesSmile();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(apple2.TalkCR(2f));
-        yield return new WaitForSeconds(2f); // Stops talking at 13.5 seconds.
+        StartCoroutine(apple2.TalkCR(2f * talkScale));
+        yield return new WaitForSeconds(2f * talkScale); // Stops talking at 13.5 seconds.
         apple2.MouthIdle();
         StartCoroutine(apple2.IdleLookCR(7.5f));
         yield return new WaitForSeconds(7.5f); // Turns at 21 seconds.
@@ -144,8 +146,8 @@ public class KitchenScript : MonoBehaviour
         yield return new WaitForSeconds(2.5f); // Starts talking at 23.5 seconds.
         apple2.EyesSmile();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(apple2.TalkCR(5f));
-        yield return new WaitForSeconds(5f); // Stops talking at 29 seconds.
+        StartCoroutine(apple2.TalkCR(5f * talkScale));
+        yield return new WaitForSeconds(5f * talkScale); // Stops talking at 29 seconds.
         apple2.MouthIdle();
         yield return new WaitForSeconds(1f);
         apple2.EyesRound(false);
@@ -153,14 +155,14 @@ public class KitchenScript : MonoBehaviour
         yield return new WaitForSeconds(8.5f); // Starts talking at 38.5 seconds.
         apple2.EyesAngry();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(apple2.TalkCR(3f));
-        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(apple2.TalkCR(3f * talkScale));
+        yield return new WaitForSeconds(1.5f * talkScale);
         apple2.rightHand.gameObject.SetActive(true);
         apple2.TurnRightFromTo(
             new Vector3(18.5f, 145.2f, 0f),
             new Vector3(-63.2f, 0f, 0f),
             0.5f);
-        yield return new WaitForSeconds(1.5f); // Stops talking at 42 seconds.
+        yield return new WaitForSeconds(1.5f * talkScale); // Stops talking at 42 seconds.
         apple2.MouthSmile();
         yield return new WaitForSeconds(8f); // Runs away at 50 seconds.
         apple2.TurnTo(new Vector3(0f, -60f, 0f), 0.25f);
